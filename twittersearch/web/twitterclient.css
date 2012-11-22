@@ -1,0 +1,23 @@
+.mainView {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.sidePanel {
+  background-color: #E5E5E5;
+  width: 260px;
+  height: 100%;
+  padding: 10px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.resultsPanel {
+  top: 20px;
+  left: 290px;
+  right: 10px;
+  position: absolute;
+  z-index: 1;
+}

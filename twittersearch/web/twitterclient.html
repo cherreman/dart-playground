@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html style="height: 100%">
+  <head>
+    <meta charset="utf-8">
+    <title>Twitterclient</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="twitterclient.css">
+    <script type="text/javascript">
+      function jsonpCallback(value) {
+        window.postMessage(JSON.stringify(value), '*');
+      }
+    </script>
+  </head>
+  
+  <body style="height: 100%">
+    
+	  <div class="mainView">
+	
+		  <div class="sidePanel">
+		    <h3>Twitter Search</h3>
+		    <div class="form-horizontal">
+		      <input id="searchInput" type="text" data-bind="value:inputSearchTerm" placeholder="Enter keyword" data-action="submit:clickHandler" />
+		      <button id="searchButton" class="btn" data-action="click:searchButton_clickHandler" disabled="{{inputSearchTerm == ''}}">
+		        <i class="icon-search"></i>
+		      </button>
+		    </div>
+		    <hr>
+		    <ul class="nav nav-pills nav-stacked" template iterate="searchTerm in searchTerms">
+		      <li class="{{searchTerm == activeSearchTerm ? 'active' : ''}}">
+		        <a href="#" data-action="click:searchTerm_clickHandler">
+		          <div>{{searchTerm}}
+		            <div style="float: right">
+		              <i class="icon-remove" data-action="click:removeSearchTerm_clickHandler"></i>
+		            </div>
+		          </div>
+		        </a>
+		      </li>
+		    </ul>
+		  </div>
+		
+		  <div class="resultsPanel" hidden="{{activeSearchTerm == ''}}">
+		    <h3 style="text-align: center">'{{tweets.length}}' {{tweets.length == 1 ? 'tweet' : 'tweets'}} about '{{activeSearchTerm}}'</h3>
+		    <br/>
+		    <table class="table table-bordered table-striped" hidden="{{tweets.length == 0}}">
+		      <thead>
+		        <th>Author</th>
+		        <th>Message</th>
+		        <th>Date</th>
+		      </thead>
+		      <tbody template iterate="tweet in tweets">
+		        <tr>
+		          <td>{{tweet.username}}</td>
+		          <td>{{tweet.text}}</td>
+		          <td>{{tweet.createdAt}}</td>
+		        </tr>
+		      </tbody>
+		    </table>
+		  </div>
+	
+	  </div>
+
+    <script type="application/dart" src="twitterclient.dart"></script>
+    <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>

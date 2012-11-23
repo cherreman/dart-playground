@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Twittersearch_simple</title>
+    <link rel="stylesheet" href="twittersearch_simple.css">
+    <script type="text/javascript">
+      function jsonpCallback(value) {
+        window.postMessage(JSON.stringify(value), '*');
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Twitter Search</h1>
+    
+    <input id="searchInput" type="text"/>
+    <button id="searchButton">Search</button>
+    
+    <hr/>
+    
+    <table width="100%" border="1">
+      <thead>
+        <td>Author</td>
+        <td>Message</td>
+        <td>Date</td>
+      </thead>
+      <tbody id="tableBody"/>  
+    </table>
+
+    <script type="application/dart" src="web/twittersearch_simple.dart"></script>
+    <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>

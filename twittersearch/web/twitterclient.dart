@@ -69,7 +69,7 @@ abstract class TwitterService{
   Future<List<Tweet>> search(String searchTerm);
 }
 
-class StubTwitterService extends TwitterService {
+class StubTwitterService implements TwitterService {
   Future<List<Tweet>> search(String searchTerm){
     List<Tweet> tweets = new List();
     Random random = new Random();
@@ -82,7 +82,7 @@ class StubTwitterService extends TwitterService {
   }
 }
 
-class JSONTwitterAPIService extends TwitterService {
+class JSONTwitterAPIService implements TwitterService {
   Function handler;
   
   Future<List<Tweet>> search(String searchTerm) {

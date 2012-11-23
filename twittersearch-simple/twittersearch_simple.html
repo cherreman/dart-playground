@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Twittersearch_simple</title>
     <link rel="stylesheet" href="twittersearch_simple.css">
+      
+    <!-- This script contains a callback function that will receive the incoming JSON data. -->
     <script type="text/javascript">
       function jsonpCallback(value) {
         window.postMessage(JSON.stringify(value), '*');
@@ -19,13 +21,8 @@
     
     <hr/>
     
-    <table width="100%" border="1">
-      <thead>
-        <td>Author</td>
-        <td>Message</td>
-        <td>Date</td>
-      </thead>
-      <tbody id="tableBody"/>  
+    <table id="resultsTable" width="100%" border="1">
+      <!-- Search results will be added here as rows -->
     </table>
 
     <script type="application/dart" src="web/twittersearch_simple.dart"></script>

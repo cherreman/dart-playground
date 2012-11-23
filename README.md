@@ -6,6 +6,8 @@ This is a repo where I keep experimental Dart code while in the process of learn
 Examples
 --------
 
+* **Twitter Search Simple**: allows you to search for a keyword on Twitter. The results are shown in a table that is dynamically updated. This example contains code that queries and manipulates the DOM, invokes the Twitter JSON(P) API and parses the incoming JSON data.
+
 * **Twitter Search**: allows you to search for keywords on Twitter. It keeps a list of previous searches. This examples uses Web Components with templating and data binding.
 
 Resources

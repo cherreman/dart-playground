@@ -10,7 +10,7 @@ Examples
 
 * **Twitter Search Simple with Web Components**: this is basically the same example as Twitter Search Simple, but uses Web Components with data binding and templating.
 
-* **Twitter Search**: allows you to search for keywords on Twitter. This is a more elaborate version than the Twitter Search Simple examples using service abstraction with the strategy pattern and asynchronous handling using Futures.
+* **Twitter Search**: allows you to search for keywords on Twitter. This is a more elaborate version than the Twitter Search Simple examples using service abstraction with the strategy pattern and asynchronous handling using Futures. Twitter Bootstrap is used for styling.
   
   Main features:
 

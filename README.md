@@ -10,7 +10,14 @@ Examples
 
 * **Twitter Search Simple with Web Components**: this is basically the same example as Twitter Search Simple, but uses Web Components with data binding and templating.
 
-* **Twitter Search**: allows you to search for keywords on Twitter. It keeps a list of previous searches. This examples uses Web Components with templating and data binding.
+* **Twitter Search**: allows you to search for keywords on Twitter. This is a more elaborate version than the Twitter Search Simple examples.
+  
+  Main features:
+
+  * It keeps a list of previous searches.
+  * Uses Web Components with templating and data binding.
+  * A service is introduced to fetch the tweets. This service consist of a pure abstract class forming the interface of the service and two implementations: the first one connects to the Twitter API, the second one is a stub that generates random data. The latter is useful during development. This choice of service is now decided in the main() method, but would potentially be injected in the appropriate place.
+  * Futures are used to respond to the asynchronous loading of tweets.
 
 Resources
 ---------

@@ -1,21 +1,36 @@
 import 'dart:html';
 import 'dart:json';
 import 'dart:math';
+import 'package:web_components/watcher.dart' as watchers;
 
-// VARIABLES
+// ----------------------------------------------------------------------------
+//
+// Variables
+//
+// ----------------------------------------------------------------------------
 
 String inputSearchTerm = "";
 String activeSearchTerm = "";
 List<String> searchTerms = new List();
 List<Tweet> tweets = new List();
 
-TwitterService _twitterService = new JSONTwitterAPIService(); // new StubTwitterService(); 
+TwitterService _twitterService;
 
-// MAIN
+// ----------------------------------------------------------------------------
+//
+// Main
+//
+// ----------------------------------------------------------------------------
 
-void main() {}
+void main() {
+  _twitterService = new JSONTwitterService(); // new StubTwitterService();
+}
 
-// EVENT HANDLERS
+// ----------------------------------------------------------------------------
+//
+// Event Handlers
+//
+// ----------------------------------------------------------------------------
 
 searchButton_clickHandler(e) {
   inputSearchTerm = inputSearchTerm.trim();
@@ -42,26 +57,43 @@ removeSearchTerm_clickHandler(MouseEvent event) {
   }
 }
 
+// ----------------------------------------------------------------------------
+//
+// Public Methods
+//
+// ----------------------------------------------------------------------------
+
 search(String searchTerm) {
   print("Search for '$searchTerm'");
   activeSearchTerm = searchTerm;
-  
+
   if (!searchTerms.contains(searchTerm)) {
     searchTerms.add(activeSearchTerm);
   }
-    
+
   _twitterService.search(searchTerm).then((List<Tweet> result) {
     tweets = result;
+    
+    // Invoke the bindings by calling dispatch on the watcher.
+    // We need to do this because the bindings are not triggered when the data
+    // is changed from within an event handler.
+    // Note: This is most likely an issue with the current version of Web Components
+    // and should normally not be needed.
+    watchers.dispatch();
   });
 }
 
-// CLASSES
+// ----------------------------------------------------------------------------
+//
+// Classes
+//
+// ----------------------------------------------------------------------------
 
 class Tweet {
   String username;
   String text;
   String createdAt;
-  
+
   Tweet(this.username, this.text, this.createdAt);
 }
 
@@ -82,32 +114,32 @@ class StubTwitterService implements TwitterService {
   }
 }
 
-class JSONTwitterAPIService implements TwitterService {
+class JSONTwitterService implements TwitterService {
   Function handler;
-  
+
   Future<List<Tweet>> search(String searchTerm) {
     var completer = new Completer();
-    
+
     var script = new Element.tag("script");
     script.src = "http://search.twitter.com/search.json?q=$activeSearchTerm&callback=jsonpCallback";
     document.body.elements.add(script);
-    
+
     handler = (MessageEvent e) {
       window.on.message.remove(handler);
-      
+
       var searchResult = JSON.parse(e.data);
       var tweets = new List<Tweet>();
-      
+
       for (Map t in searchResult["results"]) {
         tweets.add(new Tweet(t["from_user_name"], t["text"], t["created_at"]));
       }
-      
+
       print("Received ${tweets.length} tweets from server");
       completer.complete(tweets);
     };
-    
+
     window.on.message.add(handler);
-    
+
     return completer.future;
   }
 }

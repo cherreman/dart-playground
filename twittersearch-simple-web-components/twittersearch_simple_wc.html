@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!--
+  This example builds upon the twittersearch-simple example but uses Web Components
+  with data binding and templating.
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Twittersearch Simple Web Components</title>
+      
+    <!-- This script contains a callback function that will receive the incoming JSON data. -->
+    <script type="text/javascript">
+      function jsonpCallback(value) {
+        window.postMessage(JSON.stringify(value), '*');
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Twitter Search</h1>
+    
+    <!--
+      Instead of querying the value of the text input when the user clicks the search button,
+      we bind the value to the "searchTerm" property on the Dart script. Whenever the user enters
+      text, the "searchTerm" variable will be updated with the value of the text input.
+      Notice that the "id" attribute is also left out since we don't need to refer to the text input.
+    -->
+    <input type="text" data-bind="value:searchTerm"/>
+    
+    <!--
+      We define the click handler here instead of adding it in the Dart script.
+    -->
+    <button data-action="click:searchButton_clickHandler">Search</button>
+    
+    <hr/>
+    
+    <!--
+      We don't need to add rows dynamically when using data binding.
+      Instead, we mark the table as a "template" and specify the data in the "iterate" attribute.
+      The "tweets" part refers to the "tweets" property on the Dart script, while the "tweet"
+      part is a variable created on the fly to which you can bind to.
+    -->
+    <table id="resultsTable" width="100%" border="1" template iterate="tweet in tweets">
+      <tr>
+        <td>{{tweet.username}}</td>
+        <td>{{tweet.text}}</td>
+        <td>{{tweet.createdAt}}</td>
+      </tr>
+    </table>
+
+    <script type="application/dart" src="twittersearch_simple_wc.dart"></script>
+    <script src="https://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>

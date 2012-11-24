@@ -1,0 +1,4 @@
+name:  twitterclient
+description:  A sample application
+dependencies:  
+  web_components: any 

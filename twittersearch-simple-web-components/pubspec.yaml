@@ -1,4 +1,4 @@
 name:  twitterclient
 description:  A sample application
 dependencies:  
-  web_components: any 
+  web_ui: any 

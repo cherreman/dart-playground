@@ -1,6 +1,6 @@
 import 'dart:html';
 import 'dart:json';
-import 'package:web_components/watcher.dart' as watchers;
+import 'package:web_ui/watcher.dart' as watchers;
 
 // Make sure to initialize this var to an empty string to prevent
 // a runtime error at startup.

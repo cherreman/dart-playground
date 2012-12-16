@@ -1,0 +1,7 @@
+name:  components
+description:  A sample application
+
+dependencies:
+   web_ui: any
+#  js: any
+#  unittest: any

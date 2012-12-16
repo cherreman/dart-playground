@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Components</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+    <link rel="components" href="button.html">
+    <link rel="components" href="progressbar.html">
+    <link rel="components" href="hbox.html">
+    <!--<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>-->
+  </head>
+  <body style="margin: 20px">
+    <h1>Button</h1>
+    
+    <x-button>Default</x-button>
+    <x-button disabled>Disabled</x-button>
+    
+    <hr/>
+    
+    <h1>Progressbar</h1>
+    
+    <input type="text" style="width: 50px" bind-value="progressBarValue"/>
+    <x-button size="default" on-click="clickHandler()">Set Random Value</x-button>
+    
+    <hr/>
+
+    <x-progressbar value="{{progressBarValue}}"></x-progressbar>
+    <x-progressbar striped="true" value="{{progressBarValue}}"></x-progressbar>
+    <x-progressbar striped="true" animated="true" value="{{progressBarValue}}"></x-progressbar>
+
+    <hr/>
+
+    <h1>HBox</h1>
+
+    <x-hbox padding="5" gap="10" border-style="solid" border-color="green" border-width="1">
+      <x-button>a</x-button>
+      <x-button>b</x-button>
+      <x-button>c</x-button>
+      <x-button>d</x-button>
+      <x-button>e</x-button>
+    </x-hbox>
+    
+    <script type="application/dart" src="bootstrap_components.dart"></script>
+  </body>
+</html>

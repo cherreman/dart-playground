@@ -9,9 +9,16 @@ Components
 **Button**
 
 ```
-<x-button>Default</x-button>
-<x-button disabled>Disabled</x-button>
-<x-button on-click="clickHandler()">Disabled</x-button>
+<x-button label="Default"></x-button>
+<x-button label="Disabled" enabled="false"></x-button>
+<x-button label="Click me" on-click="clickHandler()"></x-button>
+```
+
+**Checkbox**
+
+```
+<x-checkbox label="My Checkbox" checked="true"></x-checkbox>
+<x-checkbox label="My Checkbox" on-change="changeHandler($event)"></x-checkbox>
 ```
 
 **Progressbar**
@@ -26,10 +33,15 @@ Components
 
 ```
 <x-hbox padding="5" gap="10" border-style="solid" border-color="green" border-width="1">
-  <x-button>a</x-button>
-  <x-button>b</x-button>
-  <x-button>c</x-button>
-  <x-button>d</x-button>
-  <x-button>e</x-button>
+  <x-button label="a"></x-button>
+  <x-button label="b"></x-button>
+  <x-button label="c"></x-button>
 </x-hbox>
+```
+
+**Table**
+
+```
+<x-table striped="true" bordered="true" hover="true" condensed="true"
+         columns="{{tableColumns}}" items="{{items}}"></x-table>
 ```

@@ -3,6 +3,8 @@ Dart Bootstrap Web Components POC
 
 This is a POC to create web components for Dart, based on Twitter Bootstrap. The library provides a set of high level web components that support data binding, event handling, etc and is built on top of Dart Web UI. The ultimate goal is to create a Flex/MXML like declarative layout framework with components and layout containers.
 
+Check the following file for an overview and usage of the components: https://github.com/cherreman/dart-playground/blob/master/bootstrap_components/web/bootstrap_components.html
+
 Components
 ----------
 

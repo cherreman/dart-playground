@@ -7,20 +7,21 @@
     
     
     
-    <!--<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>-->
+    
+    
   </head>
   <body style="margin: 20px">
     <h1>Button</h1>
     
-    <x-button id="__e-0">Default</x-button>
-    <x-button disabled="" id="__e-1">Disabled</x-button>
+    <x-button label="Default" id="__e-0"></x-button>
+    <x-button label="Disabled" enabled="false" id="__e-1"></x-button>
     
     <hr>
     
     <h1>Progressbar</h1>
     
     <input type="text" style="width: 50px" id="__e-2">
-    <x-button size="default" id="__e-3">Set Random Value</x-button>
+    <x-button label="Set Random Value" size="default" id="__e-3"></x-button>
     
     <hr>
 
@@ -32,15 +33,60 @@
 
     <h1>HBox</h1>
 
-    <x-hbox padding="5" gap="10" border-style="solid" border-color="green" border-width="1" id="__e-12">
-      <x-button id="__e-7">a</x-button>
-      <x-button id="__e-8">b</x-button>
-      <x-button id="__e-9">c</x-button>
-      <x-button id="__e-10">d</x-button>
-      <x-button id="__e-11">e</x-button>
+    <x-hbox padding="5" gap="10" border-style="solid" border-color="red" border-width="1" id="__e-12">
+      <x-button label="a" id="__e-7"></x-button>
+      <x-button label="b" id="__e-8"></x-button>
+      <x-button label="c" id="__e-9"></x-button>
+      <x-button label="d" id="__e-10"></x-button>
+      <x-button label="e" id="__e-11"></x-button>
     </x-hbox>
     
+    <hr>
+
+    <h1>Table</h1>
+
+    <x-hbox gap="15" padding="5" id="__e-13">
+      <x-checkbox id="tableStripedCheckbox" label="Striped"></x-checkbox>
+      <x-checkbox id="tableBorderedCheckbox" label="Bordered" checked="true"></x-checkbox>
+      <x-checkbox id="tableHoverCheckbox" label="Hover"></x-checkbox>
+      <x-checkbox id="tableCondensedCheckbox" label="Condensed"></x-checkbox>
+    </x-hbox>
     
+    <x-hbox padding="5" gap="10" id="__e-16">
+      <x-button label="Add Row" id="__e-14"></x-button>
+      <x-button label="Remove Row" id="__e-15"></x-button>
+    </x-hbox>
+    
+    <hr>
+
+    <!--
+      Note: referencing elements in bindings does not work:
+      https://github.com/dart-lang/web-ui/issues/266
+    -->
+
+    <x-table id="__e-17">
+      <!--<columns>
+        <column label="Firstname" dataField="firstname"></column>
+        <column label="Lastname" dataField="lastname"></column>
+        <column label="E-mail" dataField="email"></column>
+      </columns>-->
+    </x-table>
+    
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-button.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-collapse.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
   
 <script type="text/javascript" src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
 <script type="application/dart" src="bootstrap_components.html_bootstrap.dart"></script></body></html>

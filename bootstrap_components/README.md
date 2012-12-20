@@ -23,12 +23,11 @@ Components
 <x-checkbox label="My Checkbox" on-change="changeHandler($event)"></x-checkbox>
 ```
 
-**Progressbar**
+**Combobox**
 
 ```
-<x-progressbar value="{{progressBarValue}}"></x-progressbar>
-<x-progressbar striped="true" value="{{progressBarValue}}"></x-progressbar>
-<x-progressbar striped="true" animated="true" value="{{progressBarValue}}"></x-progressbar>
+<x-combobox items="{{users}}"></x-combobox>
+<x-combobox items="{{users}}" labelfield="firstname"></x-combobox>
 ```
 
 **HBox**
@@ -39,6 +38,21 @@ Components
   <x-button label="b"></x-button>
   <x-button label="c"></x-button>
 </x-hbox>
+```
+
+**List**
+
+```
+<x-list items="{{users}}"></x-list>
+<x-list items="{{users}}" labelfield="firstname"></x-list>
+```
+
+**Progressbar**
+
+```
+<x-progressbar value="{{progressBarValue}}"></x-progressbar>
+<x-progressbar striped="true" value="{{progressBarValue}}"></x-progressbar>
+<x-progressbar striped="true" animated="true" value="{{progressBarValue}}"></x-progressbar>
 ```
 
 **Table**

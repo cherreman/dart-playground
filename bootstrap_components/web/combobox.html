@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+</head>
+<body>
+<element name="x-combobox" extends="select">
+    <template>
+        <select template iterate="item in wrappedItems">
+          <option>{{item.stringValue}}</option>
+        </select>
+    </template>
+    <script type="application/dart" src="combobox.html.dart"></script>
+</element>
+</body>
+</html>

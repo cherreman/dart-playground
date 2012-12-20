@@ -23,6 +23,8 @@ void main() {
   tableColumns.add(new Tablecolumn("E-mail", "email"));
 }
 
+Element $(String id) => query('$id').xtag;
+
 clickHandler() {
   progressBarValue = _random.nextInt(100).toString();
 }
@@ -33,6 +35,14 @@ addRow() {
 
 removeRow() {
   users.removeLast();
+}
+
+String comboboxLabelFunction(item) {
+  if (item is User) {
+    var user = (item as User);
+    return "${user.firstname} ${user.lastname}";
+  }
+  return item;
 }
 
 class User {

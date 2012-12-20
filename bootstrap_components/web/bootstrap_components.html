@@ -9,6 +9,8 @@
     <link rel="components" href="hbox.html">
     <link rel="components" href="table.html">
     <link rel="components" href="checkbox.html">
+    <link rel="components" href="combobox.html">
+    <link rel="components" href="list.html">
   </head>
   <body style="margin: 20px">
     <h1>Button</h1>
@@ -16,6 +18,21 @@
     <x-button label="Default"></x-button>
     <x-button label="Disabled" enabled="false"></x-button>
     
+    <hr/>
+    
+    <h1>Combobox</h1>
+    
+    <x-combobox items="{{users}}"></x-combobox>
+    <x-combobox items="{{users}}" labelfield="firstname"></x-combobox>
+    <!--<x-combobox items="{{users}}" labelfunction="{{comboboxLabelFunction}}"></x-combobox>-->
+
+    <hr/>
+    
+    <h1>List</h1>
+    
+    <x-list items="{{users}}"></x-list>
+    <x-list items="{{users}}" labelfield="firstname"></x-list>
+
     <hr/>
     
     <h1>Progressbar</h1>
@@ -33,14 +50,14 @@
 
     <h1>HBox</h1>
 
-    <x-hbox padding="5" gap="10" border-style="solid" border-color="red" border-width="1">
+    <x-hbox padding="30" gap="20" border-style="solid" border-color="blue" border-width="5">
       <x-button label="a"></x-button>
       <x-button label="b"></x-button>
       <x-button label="c"></x-button>
       <x-button label="d"></x-button>
       <x-button label="e"></x-button>
     </x-hbox>
-    
+
     <hr/>
 
     <h1>Table</h1>
@@ -64,10 +81,10 @@
       https://github.com/dart-lang/web-ui/issues/266
     -->
 
-    <x-table striped="{{query('#tableStripedCheckbox').xtag.checked}}"
-             bordered="{{query('#tableBorderedCheckbox').xtag.checked}}"
-             hover="{{query('#tableHoverCheckbox').xtag.checked}}"
-             condensed="{{query('#tableCondensedCheckbox').xtag.checked}}"
+    <x-table striped="{{$('#tableStripedCheckbox').checked}}"
+             bordered="{{$('#tableBorderedCheckbox').checked}}"
+             hover="{{$('#tableHoverCheckbox').checked}}"
+             condensed="{{$('#tableCondensedCheckbox').checked}}"
              columns="{{tableColumns}}"
              items="{{users}}">
       <!--<columns>

@@ -56,9 +56,12 @@ class AbstractListComponent extends WebComponent {
   }
   
   inserted() {
+    super.inserted();
   }
   
   created() {
+    super.created();
+    
     if (attributes["labelfield"] != null) {
       //labelfield = attributes["labelfield"];
       labelfield = new String.fromCharCodes(attributes["labelfield"].charCodes);
@@ -79,11 +82,14 @@ class ComboBoxItemWrapper {
     if (labelField != null && !labelField.isEmpty) {
       InstanceMirror im = reflect(item);
       im.getField(labelField).then((InstanceMirror value) {
+        print("got labelfield via mirror");
         stringValue = value.reflectee;
       });
     } else if (labelFunction != null) {
+      print("labelfunction");
       stringValue = Function.apply(labelFunction, [item]);
     } else {
+      print("no labelfield and labelfunction");
       stringValue = item.toString();
     }
   }

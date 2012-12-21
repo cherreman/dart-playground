@@ -15,8 +15,12 @@ Random _random = new Random();
 
 
 void main() {
+  print("Dart Bootstrap test");
+  
   users.add(new User("Christophe", "Herreman", "christophe@stackandheap.com"));
   users.add(new User("Roland", "Zwaga", "roland@stackandheap.com"));
+  users.add(new User("Bert", "Vandamme", "bert@stackandheap.com"));
+  users.add(new User("Gert", "Poppe", "gert@stackandheap.com"));
   
   tableColumns.add(new Tablecolumn("Firstname", "firstname"));
   tableColumns.add(new Tablecolumn("Lastname", "lastname"));
@@ -43,6 +47,11 @@ String comboboxLabelFunction(item) {
     return "${user.firstname} ${user.lastname}";
   }
   return item;
+}
+
+comboboxChangeHandler(Event event) {
+  var selectedIndex = (event.currentTarget as Element).xtag.selectedIndex;
+  print("combobox change, selected index: ${selectedIndex}");
 }
 
 class User {

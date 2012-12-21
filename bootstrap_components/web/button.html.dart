@@ -1,20 +1,10 @@
 import 'package:web_ui/web_ui.dart';
     
 class Button extends WebComponent {
-    
+  
+  bool enabled = true;
   String size = "default";
   String label = "";
-  
-  bool _enabled = true;
-  bool get enabled => _enabled;
-  set enabled(bool value) {
-    _enabled = value;
-    if (value) {
-      elements[0].attributes.remove("disabled");
-    } else {
-      elements[0].attributes["disabled"] = "disabled";
-    }
-  }
   
   String get buttonClass {
     var result = "btn";

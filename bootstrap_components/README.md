@@ -28,6 +28,7 @@ Components
 ```
 <x-combobox items="{{users}}"></x-combobox>
 <x-combobox items="{{users}}" labelfield="firstname"></x-combobox>
+<x-combobox items="{{users}}" selected-index="2"></x-combobox>
 ```
 
 **HBox**

@@ -22,9 +22,13 @@
     
     <h1>Combobox</h1>
     
-    <x-combobox items="{{users}}"></x-combobox>
+    <!--<x-combobox items="{{users}}"></x-combobox>
     <x-combobox items="{{users}}" labelfield="firstname"></x-combobox>
+    <x-combobox items="{{users}}" labelfield="firstname" selected-index="2"></x-combobox>-->
+    <x-combobox id="comboBox" items="{{users}}" labelfield="firstname" on-change="comboboxChangeHandler($event)"></x-combobox>
     <!--<x-combobox items="{{users}}" labelfunction="{{comboboxLabelFunction}}"></x-combobox>-->
+
+    <p>number of items: {{$('#comboBox').items.length}}, selectedIndex: {{$('#comboBox').selectedIndex}}, selectedItem: {{$('#comboBox').selectedItem}}</p>
 
     <hr/>
     

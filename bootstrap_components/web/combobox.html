@@ -7,8 +7,8 @@
 <body>
 <element name="x-combobox" extends="select">
     <template>
-        <select template iterate="item in wrappedItems">
-          <option>{{item.stringValue}}</option>
+        <select template iterate="item in wrappedItems" on-change="changeHandler($event)">
+          <option selected="{{wrappedItems.indexOf(item) == selectedIndex}}">{{item.stringValue}}</option>
         </select>
     </template>
     <script type="application/dart" src="combobox.html.dart"></script>

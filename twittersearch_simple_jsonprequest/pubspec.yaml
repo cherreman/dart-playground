@@ -1,0 +1,6 @@
+name:  sample_pubspec
+description:  A sample application
+
+dependencies:
+    browser: any
+    jsonp_request: any

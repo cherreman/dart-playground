@@ -29,6 +29,11 @@ Example with custom callback attribute
       });
 	}
 	
+Download
+--------
+
+http://pub.dartlang.org/packages/jsonp_request
+
 Resources
 ---------
 

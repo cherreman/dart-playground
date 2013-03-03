@@ -1,0 +1,5 @@
+name: jsonp_request
+version: 0.0.1
+author: Christophe Herreman <christophe.herreman@gmail.com>
+description: A utility to execute JSONP requests
+homepage: https://github.com/cherreman/dart-playground

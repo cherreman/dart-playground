@@ -26,7 +26,7 @@ class _JsonpRequest {
   Future<Map> _get(String url, [String callbackParam = "callback"]) {
     var completer = new Completer<Map>();
     _callbackName = "jsonpCallback_${_requestCounter++}";
-    url = url.concat("&$callbackParam=$_callbackName");
+    url += "&$callbackParam=$_callbackName";
 
     _listenForCallback(completer);
     _addCallbackScript();
